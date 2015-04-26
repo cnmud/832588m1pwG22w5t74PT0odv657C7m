@@ -1,0 +1,494 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+<HTML>
+
+<HEAD>
+	<TITLE>[CDMA月结帐单查询]处理页面</TITLE>
+	<LINK rel="stylesheet" href="/recv.css" type="text/css">
+	<LINK href="/newimages/index.css" type=text/css rel=stylesheet>
+	<!-- 下面加入javascript脚本，用来实现树形效果-->
+	<link rel="stylesheet" href="/tablefont.css" type="text/css">
+	<script language="javascript" src="/recv.js">
+	</script>	
+	<script language="JavaScript" type="text/JavaScript">
+		<!--		
+		function winconfirm(){	
+		
+		    var oldpassword=form1.OldPassword.value;
+		    var newpassword=form1.NewPassword.value;
+		    var andnewpassword=form1.andNewPassword.value;
+		    
+			if (oldpassword == "")
+    		 {
+    		     alert("请输入旧密码!");
+    		     document.form1.OldPassword.focus();
+			     return false;
+			   }
+			 if (newpassword == '')
+    		 {
+    		     alert("请输入新密码!");
+    		     document.form1.NewPassword.focus();
+			     return false;
+			   }
+			   if (andnewpassword == '')
+    		 {
+    		     alert("请输入确认密码!");
+    		     document.form1.andNewPassword.focus();
+			     return false;
+			   }
+			  if (newpassword != andnewpassword)
+    		 {
+    		     alert("你输入的新密码与确认密码不一致，请重新输入!");
+    		     document.form1.NewPassword.focus();
+    		     form1.NewPassword.value='';
+    		     form1.andNewPassword.value='';
+			     return false;
+			   }    
+			   
+			   //window.location='/modifyPassword.jsp?OldPassword=' + oldpassword + '&NewPassword=' + newpassword;
+			   //return true;
+		}	
+		
+		function winconfirm_mod(mycode,oldvalue){
+		    var code = mycode;
+		    var newinfo ;
+		    var info;
+		    if(code == '0000')
+		    {
+		    	newinfo = form1.inputusername.value;
+		    	if(newinfo == oldvalue)
+		    	{
+		    		alert('用户名称未修改，需要修改请重新输入');
+		    		return;
+		    	}
+		    	info = '用户名: 由  [' + oldvalue + ']  修改为  [' + newinfo +']';
+		    }
+		    if(code == '0001')
+		    {	
+		    	newinfo = form1.inputpostcode.value;
+		    	if(newinfo == oldvalue)
+		    	{
+		    		alert('邮编名称未修改，需要修改请重新输入');
+		    		return;
+		    	}
+		    	info = '邮编: 由  [' + oldvalue + ']  修改为  [' + newinfo +']';
+		    }
+		    if(code == '0002')
+		    {
+		    	newinfo = form1.inputaddress.value;
+		    	if(newinfo == oldvalue)
+		    	{
+		    		alert('通讯地址未修改，需要修改请重新输入');
+		    		return;
+		    	}
+		    	info = '通讯地址: 由  [' + oldvalue + ']  修改为  [' + newinfo +']';
+		    }
+		    if(code == '0007')
+		    {
+		    	newinfo = form1.inputacctname.value;
+		    	if(newinfo == oldvalue)
+		    	{
+		    		alert('结算户名未修改，需要修改请重新输入');
+		    		return;
+		    	}
+		    	info = '结算户名: 由  [' + oldvalue + ']  修改为  [' + newinfo +']';
+		    }
+		    if(code == '0008')
+		    {
+		    	newinfo = form1.inputacctpc.value;
+		    	if(newinfo == oldvalue)
+		    	{
+		    		alert('结算邮编未修改，需要修改请重新输入');
+		    		return;
+		    	}
+		    	info = '结算邮编: 由  [' + oldvalue + ']  修改为  [' + newinfo +']';
+		    }
+		    if(code == '0012')
+		    {
+		    	newinfo = form1.inputemail.value;
+		    	if(newinfo == oldvalue)
+		    	{
+		    		alert('EMAIL地址未修改，需要修改请重新输入');
+		    		document.form1.inputemail.focus();
+		    		return;
+		    	}
+		    	info = 'EMAIL地址: 由  [' + oldvalue + ']  修改为  [' + newinfo +']';
+		    }			
+			question = confirm(info);
+			
+			if (question == true)
+			{
+				window.location='../modifyInfo.jsp?code=' + code+ '&newinfo=' + newinfo;
+			} else
+			{
+				window.location.reload();
+			}
+			
+		}
+
+		 function select_onchange()
+		 {
+                   var temp_Prov_Name = document.form1.temp_Prov_Name.value;
+                   if(temp_Prov_Name =='-1')
+                   {
+                     window.location = "/Queryacptsite/recv_Queryacptall.jsp";
+                   }
+                   if(temp_Prov_Name =='0730')
+                   {
+                     window.location = "/Queryacptsite/recv_Queryacptyueyang.jsp";
+                   }
+                   if(temp_Prov_Name =='0731')
+                   {
+                     window.location = "/Queryacptsite/recv_Queryacptchangsha.jsp";
+                   }
+                   if(temp_Prov_Name =='0732')
+                   {
+                     window.location = "/Queryacptsite/recv_Queryacptxiangtan.jsp";
+                   }
+                   if(temp_Prov_Name =='0733')
+                   {
+                     window.location = "/Queryacptsite/recv_Queryacptzhuzhou.jsp";
+                   }
+                   if(temp_Prov_Name =='0734')
+                   {
+                     window.location = "/Queryacptsite/recv_Queryacpthengyang.jsp";
+                   }
+                   if(temp_Prov_Name =='0735')
+                   {
+                     window.location = "/Queryacptsite/recv_Queryacptchenzhou.jsp";
+                   }
+                   if(temp_Prov_Name =='0736')
+                   {
+                     window.location = "/Queryacptsite/recv_Queryacptchangde.jsp";
+                   }
+                   if(temp_Prov_Name =='0737')
+                   {
+                     window.location = "/Queryacptsite/recv_Queryacptyiyang.jsp";
+                   }
+                   if(temp_Prov_Name =='0738')
+                   {
+                     window.location = "/Queryacptsite/recv_Queryacptloudi.jsp";
+                   }
+                   if(temp_Prov_Name =='0739')
+                   {
+                     window.location = "/Queryacptsite/recv_Queryacptshaoyang.jsp";
+                   }
+                   if(temp_Prov_Name =='0743')
+                   {
+                     window.location = "/Queryacptsite/recv_Queryacptxiangxi.jsp";
+                   }
+                   if(temp_Prov_Name =='0744')
+                   {
+                     window.location = "/Queryacptsite/recv_Queryacptzhangjiajie.jsp";
+                   }
+                   if(temp_Prov_Name =='0745')
+                   {
+                     window.location = "/Queryacptsite/recv_Queryacpthuaihua.jsp";
+                   }
+                   if(temp_Prov_Name =='0746')
+                   {
+                     window.location = "/Queryacptsite/recv_Queryacptyongzhou.jsp";
+                   }
+		 }
+		 
+                  function CheckAll(field) {
+                    for (i = 0; i < field.length; i++) {
+                         field[i].checked = true;
+                    }
+                         return true; 
+                  }
+                  function CheckNone(field) {
+                    for (i = 0; i < field.length; i++) {
+                         field[i].checked = false;
+                    }     
+                         return true; 
+                  }  	
+		//-->
+	</script>		                   
+	<META http-equiv=Content-Type content="text/html; charset=gb2312">
+</HEAD>
+
+
+
+
+<BODY text=#000000 bgColor=#ffffff leftMargin=0 topMargin=0>
+<TABLE cellSpacing=0 cellPadding=0 width=780 align=center border=0>
+	
+	
+		<TD height="24" valign="top" colspan="2">
+			<table border="0" cellpadding="0" style="border-collapse: collapse" width="101%" id="table1" height="25" background="middle11.jpg">
+				<tr>
+					<td width="10" bgcolor="#F3F3F3" rowspan="3" valign="top">
+				    
+					<td width="170" bgcolor="#F3F3F3" rowspan="3" valign="top">
+					<table border="0" cellpadding="0" bgcolor="#FFFFFF" style="border-collapse: collapse" width="100%" id="table5" height="100">
+				
+				<tr><img src="images/t1.gif" align="center" height="45"  ></tr>
+				
+				
+				  <tr >
+					<td width="20" height="23" align="center" background="/newimages/daohangbackground.gif">
+						<img src="/newimages/jiantou.gif" width="4" height="7">					</td>
+					<td height="23" background="/newimages/daohangbackground.gif">
+						<a href="#" onClick="openHiddle(displayorhiddlerow1)">
+							CDMA用户信息查询						</a>					</td>
+				</tr>
+				
+				<tr id="displayorhiddlerow1" style="display:none ">
+					<td width="20" align="center" background="/newimages/daohangbackground.gif">&nbsp;					</td>
+					<td background="/newimages/daohangbackground.gif">
+						<table width="100%"  border="0" cellspacing="1" cellpadding="1">
+							<tr>
+								<td height="23"><a href="/zjquery/recv_QueryService.jsp">CDMA用户特服查询</a></td>
+							</tr>
+				                        <tr>
+								<td height="23"><a href="/zjquery/recv_QueryIntegral.jsp">CDMA用户积分查询</a></td>
+				                        </tr>				       
+						</table>	          		</td>
+	        	</tr>
+	        
+				<tr>
+					<td width="20" height="23" align="center" background="/newimages/daohangbackground.gif">
+						<img src="/newimages/jiantou.gif" width="4" height="7">					</td>
+					<td height="23" background="/newimages/daohangbackground.gif">
+						<a href="#" onClick="openHiddle(displayorhiddlerow2)">
+							CDMA用户费用查询						</a>					</td>
+				</tr>
+				<tr id="displayorhiddlerow2" style="display:none ">
+					<td width="20" align="center" background="/newimages/daohangbackground.gif">&nbsp;</td>
+					<td background="/newimages/daohangbackground.gif">
+						<table width="100%"  border="0" cellspacing="1" cellpadding="1">
+							<tr>
+							 	<td height="23"><a href="/zjquery/recv_QueryHotFee.jsp">CDMA实时话费查询</a></td>
+                          </tr>
+				                        <tr>
+								<td height="23"><a href="/zjquery/recv_QueryBalance.jsp">CDMA用户余额查询</a></td>
+				                        </tr>
+				                        <tr>
+								<td height="23"><a href="/zjquery/send_QueryBill.jsp">CDMA月结帐单查询</a></td>
+				                        </tr>
+				                        <tr>
+								<td height="23"><a href="/zjquery/send_GetCDR.jsp">CDMA详单查询</a></td>
+				                        </tr>
+						</table>					</td>
+				</tr>
+			        <tr >
+					<td width="20" height="23" align="center" background="/newimages/daohangbackground.gif">
+						<img src="/newimages/jiantou.gif" width="4" height="7">					</td>
+					<td height="23" background="/newimages/daohangbackground.gif">
+						<a href="#" onClick="openHiddle(displayorhiddlerow6)">
+							CDMA手机归属地查询						</a>					</td>
+				</tr>
+				<tr  id="displayorhiddlerow6" style="display:none">
+					<td width="20" align="center" background="/newimages/daohangbackground.gif">&nbsp;</td>
+					<td background="/newimages/daohangbackground.gif">
+					<table width="100%"  border="0" cellspacing="1" cellpadding="1">
+						<tr>
+						     <td height="23"><a href="/zjquery/send_QueryArchevArea.jsp">CDMA手机归属地查询</a></td>
+	                  </tr>
+			          </table>					</td>
+				</tr>						
+			   <!--	<tr>
+					<td width="20" height="23" align="center" background="newimages/daohangbackground.gif">
+						<img src="newimages/jiantou.gif" width="4" height="7">
+					</td>
+					<td height="23" background="newimages/daohangbackground.gif">
+						<a href="zjmodify/recv_Modifypassword.jsp" onClick="openHiddle(displayorhiddlerow3)">
+							服务密码修改
+						</a>
+					</td>
+			    </tr>			    
+				<tr  id="displayorhiddlerow3" style="display:none ">
+					<td width="20" align="center" background="newimages/daohangbackground.gif">&nbsp;</td>
+					<td background="newimages/daohangbackground.gif">
+						<table width="100%"  border="0" cellspacing="1" cellpadding="1">
+							<tr>
+							 	<td height="23"><a href="zjmodify/recv_Modifypassword.jsp">用户密码修改</a></td>
+				            </tr>				            
+						</table>
+					</td>
+				</tr>
+				-->        	
+				<tr >
+					<td width="20" height="23" align="center" background="/newimages/daohangbackground.gif">
+						<img src="/newimages/jiantou.gif" width="4" height="7">					</td>
+					<td height="23" background="/newimages/daohangbackground.gif">
+						<a href="#" onClick="openHiddle(displayorhiddlerow3)">
+							CDMA业务变更						</a>					</td>
+				</tr>
+				<tr  id="displayorhiddlerow3" style="display:none ">
+					<td width="20" align="center" background="/newimages/daohangbackground.gif">&nbsp;					</td>
+					<td background="/newimages/daohangbackground.gif">
+						<table width="100%"  border="0" cellspacing="1" cellpadding="1">
+							<tr>
+								<td height="23"> <a href="/zjmodify/send_SpecOpen.jsp">CDMA报开机</a></td>
+							</tr>
+				                        <tr>
+							 	<td height="23"><a href="/zjmodify/send_ModifyService.jsp">CDMA用户特服修改</a></td>
+				                        </tr>
+							<tr>
+							 	<td height="23"><a href="/zjmodify/recv_Modifypassword.jsp">CDMA用户密码修改</a></td>
+                          </tr>
+						</table>					</td>
+				</tr>
+				
+				<tr >
+					<td width="20" height="23" align="center" background="/newimages/daohangbackground.gif">
+						<img src="/newimages/jiantou.gif" width="4" height="7">					</td>
+					<td height="23" background="/newimages/daohangbackground.gif">
+						<a href="#" onClick="openHiddle(displayorhiddlerow4)">
+							系统功能						</a>					</td>
+				</tr>
+				<tr  id="displayorhiddlerow4" style="display:none ">
+					<td width="20" align="center" background="/newimages/daohangbackground.gif">&nbsp;</td>
+					<td background="/newimages/daohangbackground.gif">
+						<table width="100%"  border="0" cellspacing="1" cellpadding="1">							
+							<tr>
+								<td height="23"> <a href="/index.jsp">切换用户</a></td>
+							</tr>
+							<!-----
+							<tr>
+								<td height="23"> <a href="/feedback.jsp">客户心声</a></td>
+							</tr>
+							------>
+							<tr>
+								<td height="23"> <a href="/main.jsp">主要功能</a></td>
+							</tr>
+						</table>					</td>
+				</tr>
+				<tr >
+					<td width="20" height="23" align="center" background="/newimages/daohangbackground.gif">
+						<img src="/newimages/jiantou.gif" width="4" height="7">					</td>
+					<td height="23" background="/newimages/daohangbackground.gif">
+						<a href="/Queryacptsite/recv_Queryacptchangsha.jsp" onClick="openHiddle(displayorhiddlerow5)">
+							营业厅导航						</a>					</td>
+				</tr>
+				<tr>
+					<td width="20" height="23" align="center" background="/newimages/daohangbackground.gif">
+						<img src="/newimages/jiantou.gif" width="4" height="7">					</td>
+					<td height="23" background="/newimages/daohangbackground.gif">
+						<a href="/logout.jsp" onClick="openHiddle(displayorhiddlerow5)">
+							退出系统						</a>					</td>
+				</tr>	
+			</table>
+
+		</td>
+		
+	
+	  <td>
+			<table border="0" cellpadding="0" style="border-collapse: collapse" width="605" id="table2" height="25">
+				<tr>
+				<td valign="top" height="96" width="605" colspan="2">
+					<img border="0" src="/newimages/tf1_2.gif" width="605" height="96"></td>
+			        </tr>
+				<TR>
+					<TD style="BORDER-BOTTOM: 1px solid" bgColor=#cccccc height=25>
+						<STRONG><A href="/index.jsp">首页</A> &gt;&gt; 
+						<A href="/main.jsp">自助服务</A> &gt;&gt; 
+						<A href="/mainfee.jsp">用户费用查询</A> &gt;&gt;
+						CDMA月结帐单查询
+						</STRONG>
+					</TD>
+				</TR>
+			</table>
+		</td>
+	<tr>
+		<td height="24" bgcolor="#DAF4ED" valign="top">
+			<table border="0" cellpadding="0" style="border-collapse: collapse" width="609" id="table4" height="20">
+				<td width="200" height="24" style="border-bottom-style: solid; border-bottom-width: 1px"><img border="0" src="/newimages/tf1_3.gif">
+				</td>
+			</table>
+		</td>
+	</tr>	
+	<tr>
+		<td height="435" bgcolor="#FFFFF3" background="middle11.jpg" align="center" valign="top">
+			<table border="0" cellpadding="0" style="border-collapse: collapse" width="100%" id="table11">
+				<tr>
+					<td height="30">
+			<!--start table !-->	
+					</td>
+					</tr>
+					<form name="GSM_QueryBill" method=post action="http://211.91.226.221:7001/zjquery/recv_QueryBill.jsp">
+					
+						<table border=0 width="70%" align="center" cellpadding="1" cellspacing="1"  bordercolor="#109020" bgcolor="#109020" valign="middle">							
+							<tr>
+								<td  bgcolor="#CCFFCC" align="left">帐单开始年月(yyyyMM)</td>
+								<td class="tdfont_input"  bgcolor="#FFFFCE">
+			 											
+									<input name="beginyearmonth">
+								</td>
+								<td  bgcolor="#CCFFCC" align="left">帐单终止年月(yyyyMM)</td>
+								<td class="tdfont_input"  bgcolor="#FFFFCE">						
+									<input name="endyearmonth">
+								</td>
+							</tr>
+						</table>
+						<table align="center" width="200" height="50">
+							<tr>
+							</tr>
+							<tr>
+								<td width=100 align="center">
+									<input name="提交" type="submit" value="提交" class="confirm">					
+								</td>
+								<td width=100 align="center">
+									<input name="取消" type="reset" value="取消" class="cancle">	
+								</td>
+							</tr>
+						</table>
+					</form>				
+			<!--end table !-->
+					</td>
+				</tr>
+			</table>					    		
+			
+<style type="text/css">
+<!--
+.STYLE1 {color: #000000}
+-->
+</style>
+
+
+			<tr>
+				<td height="22" bgcolor="" valign="top">
+					<table width="780" border="0" align="center" cellpadding="0" cellspacing="0">
+   <tr>
+    <td height="21" bgcolor="#CCCCCC">
+      <!--常用链接开始-->
+      <table width="134" border="0" align="right" cellpadding="0" cellspacing="0">
+         <tr>
+          <td width="1"><img height="15" src="images/index_t12.gif" width="1"></td>
+          <td width="66"><div align="center"><a href="http://www.hn.chinaunicom.com/sitemap/index.html"><img border="0" height="15" src="images/index_t13.gif" width="50"></a></div></td>
+          <td width="1"><img height="15" src="images/index_t12.gif" width="1"></td>
+          <td width="66"><div align="center"><a href="http://www.hn.chinaunicom.com/profile/contact.html"><img border="0" height="15" src="images/index_t14.gif" width="50"></a></div></td>
+        </tr>
+      </table>
+      <!--常用链接结束-->    </td>
+  </tr>
+  <tr>
+    <!--版权开始-->
+    <td height="30"><div align="center"><img height="20" src="/images/index_t17.gif" width="186"></div></td>
+    <!--版权结束-->
+  </tr>
+  <tr>
+    <td height="30" align="center"><a href="http://www.miibeian.gov.cn" target="_blank"><span class="font_indexnews STYLE1">湘ICP备05003597号</span></a></td>
+  </tr>
+</table>
+		  		</td>
+			</tr>
+		</TD>
+	</TR>
+</TABLE>
+
+</BODY>
+</HTML>

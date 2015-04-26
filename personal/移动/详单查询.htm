@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Untitled Page</title>
+
+    <script type="text/JavaScript" src="https://www.hn.10086.cn/js/jquery/jquery-1.4.4.min.js"></script>
+
+    <script type="text/JavaScript" src="https://www.hn.10086.cn/js/jquery/jquery.form.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="https://www.hn.10086.cn/css/service.css" />
+	<!--	<link media="all" rel="stylesheet" href="https://www.hn.10086.cn/css/base.css" type="text/css" />
+		<link media="all" rel="stylesheet" href="https://www.hn.10086.cn/css/layout.css" type="text/css" />		-->
+
+    <script language="javascript" type="text/javascript">
+        function queryDetailBill() {
+            var startDate = $('#startDate').val();
+            var endDate = $('#endDate').val();
+            var month = $("#month").attr("value");
+            var detailType = $("#detailType").attr("value");
+            var token = $("#token").val();
+            var pwd = '';
+            var query = "busiId=detailBill11&operation=query&month=" + month + "&startDate=" + startDate + "&endDate=" + endDate + "&detailType=" + detailType + "&detailBillPwd=" + pwd + "&token=" + token;
+            //var query = "busiId=detailBill11&operation=query&month=201210&startDate=01&endDate=30&detailType=8&detailBillPwd=undefined&token=8564928D7EFEA23D00E271F30E3FFE74";
+            //alert(query);
+            $.ajax({
+                url: "https://www.hn.10086.cn/ajax/billservice/detailBillInfo.jsp?" + query + "&r=" + new Date(),
+                cache: false,
+                dataType: "html",
+                type: "POST",
+                beforeSend: function(XMLHttpRequest) {
+                    $("#submitbtn").attr("disabled", "disabled");
+                    //loadProgressBar(1, "您查询的信息较多，系统正在努力调取中，请您稍候...");
+                    $("#detailBill").hide();
+                },
+                complete: function(XMLHttpRequest, textStatus) {
+                    $("#submitbtn").attr("disabled", "");
+                    $("#queryProgressBarDiv").hide();
+                    $("#detailBill").show();
+                },
+                success: function(html) {
+                    $("#detailBill").html(html);
+                    //if (typeof (_grtag) != "undefined") { _grtag.dcsMultiTrack('WT.si_x', '99'); } //业务办理成功
+                },
+                error: function(textStatus) {
+                    //if (typeof (_grtag) != "undefined") { _grtag.dcsMultiTrack('WT.si_x', '-99'); } //业务办理失败
+                    alert('error' + textStatus);
+                }
+            });
+        }
+
+        
+    </script>
+
+</head>
+<body>
+    <!--"busiId=detailBill11&operation=query&month=201210&startDate=01&endDate=30&detailType=8&detailBillPwd=undefined&token=8564928D7EFEA23D00E271F30E3FFE74"-->
+    <!--https://www.hn.10086.cn/v2009/service/ajax/billservice/detailBillInfo11.jsp
+    ?busiId=detailBill11
+    &operation=query
+    &month=201209
+    &startDate=01
+    &endDate=18
+    &detailType=8
+    &detailBillPwd=undefined
+    &token=D4E399312C570A6ABB3A8770265E037C
+    &r=Tue%20Sep%2018%202012%2016:21:46%20GMT+0800-->
+    <!--<form action="https://www.hn.10086.cn/v2009/service/ajax/billservice/detailBillInfo11.jsp" method="post" target="_blank">-->
+    <input type="hidden" name="busiId" value="detailBill11" />
+    <input type="hidden" name="operation" value="query" />
+    Month:
+    <input type="text" name="month" id="month" value="201209" /><br />
+    Start Date:
+    <input type="text" name="startDate" id="startDate" value="01" /><br />
+    End Date:
+    <input type="text" name="endDate" id="endDate" value="30" /><br />
+    <input type="hidden" name="detailType" id="detailType" value="8" />
+    <input type="hidden" name="detailBillPwd" id="detailBillPwd" value="" />
+    Token:
+    <input type="text" name="token" id="token" value="" /><br />
+    <input type="button" value="Submit" onclick="queryDetailBill()" />
+    <br />
+    <br />
+    <div id="detailBill" style="width: 950px;">
+    </div>
+    <!--</form>-->
+
+    <script language="javascript" type="text/javascript">
+        function Initilize() {
+            var now = new Date();
+            var year = now.getFullYear().toString();
+            var month = (now.getMonth() + 1).toString();
+            month = '0' + month;
+            month = month.substring(month.length - 2, month.length);
+            var lastDay = new Date(year, month, 0);
+            var day = lastDay.getDate().toString();
+
+            document.getElementById('month').value = year + month;
+            document.getElementById('endDate').value = day;
+			
+			$.ajax({
+                url: "https://www.hn.10086.cn/service/fee/monthBill.jsp?r=" + new Date(),
+                cache: false,
+                dataType: "html",
+                type: "GET",
+                success: function(html) {
+                    //console.log(html);
+					var tokenString = '<input type="hidden" name="token" value="';
+					var token = html.substring(html.indexOf(tokenString) + tokenString.length, html.length);
+					//console.log(token);
+					token = token.substring(0, token.indexOf('"'));
+					//console.log(html);
+					$('#token').val(token);
+                },
+            });
+        }
+
+        Initilize();
+    </script>
+
+</body>
+</html>

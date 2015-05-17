@@ -1,1 +1,0 @@
-"C:\Program Files\WinRAR\rar" a -ep -m5 "E:\我的家\我的家.rar" "C:\Program Files (x86)\MoneyWise\MoneyHome\Data\\mhlink.mdb" "C:\Program Files (x86)\MoneyWise\MoneyHome\Data\我的家.mh6" "C:\Program Files (x86)\MoneyWise\MoneyHome\Data\我的家(20131031).mh6"

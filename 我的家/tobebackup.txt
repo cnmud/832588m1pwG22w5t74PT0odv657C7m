@@ -1,0 +1,4 @@
+D:\173vpn; D:\cdrom; D:\Game; D:\KEmulator; D:\NetGame; D:\Program Files; D:\爱尔贝; 
+D:\奥尔夫音乐; D:\模拟器; D:\手机证书备份; D:\我的家; E:\Downloads; E:\tools; 
+F:\update; F:\Video; F:\项目开发; F:\Backup; F:\clochase; F:\drivers; F:\Outlook; 
+F:\Personal; F:\Photo; F:\Projects; F:\source; F:\My Documents; E:\手机备份

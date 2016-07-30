@@ -1,2 +1,2 @@
-"C:\Program Files\WinRAR\rar" a -ep -m5 "D:\我的家\我的家.rar" "C:\Program Files (x86)\MoneyWise\MoneyHome\Data\\mhlink.mdb" "C:\Program Files (x86)\MoneyWise\MoneyHome\Data\我的家.mh6" "C:\Program Files (x86)\MoneyWise\MoneyHome\Data\我的家(20131031).mh6"
+"C:\Program Files\WinRAR\rar" a -ep -m5 -pjxid0509 "D:\我的家\我的家.rar" "C:\Program Files (x86)\MoneyWise\MoneyHome\Data\\mhlink.mdb" "C:\Program Files (x86)\MoneyWise\MoneyHome\Data\我的家.mh6" "C:\Program Files (x86)\MoneyWise\MoneyHome\Data\我的家(20131031).mh6" "D:\我的家\招财宝.xlsx"
 copy /y d:\我的家\我的家.rar \\192.168.199.1\HiWiFi-Share
